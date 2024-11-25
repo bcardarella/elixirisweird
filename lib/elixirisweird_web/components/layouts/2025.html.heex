@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en" phx-socket={Beacon.Web.Layouts.live_socket_path(assigns)}>
+  <head>
+    <meta name="csrf-token" content={get_csrf_token()} />
+    <%= Beacon.Web.Layouts.render_meta_tags(assigns) %>
+    <%= Beacon.Web.Layouts.render_schema(assigns) %>
+    <.live_title>
+      <%= Beacon.Web.Layouts.render_page_title(assigns) %>
+    </.live_title>
+    <%= Beacon.Web.Layouts.render_resource_links(assigns) %>
+    <script defer src={Beacon.Web.Layouts.asset_path(@conn, :js)}>
+    </script>
+  </head>
+  <body>
+    <%= @inner_content %>
+  </body>
+</html>
