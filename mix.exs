@@ -10,8 +10,39 @@ defmodule Elixirisweird.MixProject do
       start_permanent: Mix.env() == :prod,
       consolidate_protocols: Mix.env() != :dev,
       aliases: aliases(),
+      releases: [
+        my_app: [
+          steps: [:assemble, &copy_beacon_files/1]
+        ]
+      ],
       deps: deps()
     ]
+  end
+
+  defp copy_beacon_files(%{path: path} = release) do
+    case Path.wildcard("_build/tailwind-*") do
+      [] ->
+        raise """
+        tailwind-cli not found
+
+        Execute the following command to install it before proceeding:
+
+            mix tailwind.install
+
+        """
+
+      tailwind_bin_path ->
+        build_path = Path.join([path, "bin", "_build"])
+        File.mkdir_p!(build_path)
+
+        for file <- tailwind_bin_path do
+          File.cp!(file, Path.join(build_path, Path.basename(file)))
+        end
+    end
+
+    File.cp!(Path.join(["assets", "css", "app.css"]), Path.join(path, "app.css"))
+
+    release
   end
 
   # Configuration for the OTP application.
