@@ -1,4 +1,4 @@
-# Elixirisweird
+# ElixirIsWeird
 
 To start your Phoenix server:
 

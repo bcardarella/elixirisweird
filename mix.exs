@@ -1,4 +1,4 @@
-defmodule Elixirisweird.MixProject do
+defmodule ElixirIsWeird.MixProject do
   use Mix.Project
 
   def project do
@@ -11,7 +11,7 @@ defmodule Elixirisweird.MixProject do
       consolidate_protocols: Mix.env() != :dev,
       aliases: aliases(),
       releases: [
-        my_app: [
+        elixirisweird: [
           steps: [:assemble, &copy_beacon_files/1]
         ]
       ],
@@ -50,7 +50,7 @@ defmodule Elixirisweird.MixProject do
   # Type `mix help compile.app` for more information.
   def application do
     [
-      mod: {Elixirisweird.Application, []},
+      mod: {ElixirIsWeird.Application, []},
       extra_applications: [:logger, :runtime_tools]
     ]
   end

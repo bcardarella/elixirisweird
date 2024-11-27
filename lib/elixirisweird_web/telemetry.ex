@@ -1,4 +1,4 @@
-defmodule ElixirisweirdWeb.Telemetry do
+defmodule ElixirIsWeirdWeb.Telemetry do
   use Supervisor
   import Telemetry.Metrics
 
@@ -86,7 +86,7 @@ defmodule ElixirisweirdWeb.Telemetry do
     [
       # A module, function and arguments to be invoked periodically.
       # This function must call :telemetry.execute/3 and a metric must be added above.
-      # {ElixirisweirdWeb, :count_users, []}
+      # {ElixirIsWeirdWeb, :count_users, []}
     ]
   end
 end

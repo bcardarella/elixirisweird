@@ -1,4 +1,4 @@
-defmodule ElixirisweirdWeb.Endpoint do
+defmodule ElixirIsWeirdWeb.Endpoint do
   use Phoenix.Endpoint, otp_app: :elixirisweird
 
   # The session will be stored in the cookie and signed,
@@ -23,7 +23,7 @@ defmodule ElixirisweirdWeb.Endpoint do
     at: "/",
     from: :elixirisweird,
     gzip: false,
-    only: ElixirisweirdWeb.static_paths()
+    only: ElixirIsWeirdWeb.static_paths()
 
   # Code reloading can be explicitly enabled under the
   # :code_reloader configuration of your endpoint.
@@ -49,5 +49,5 @@ defmodule ElixirisweirdWeb.Endpoint do
   plug Plug.MethodOverride
   plug Plug.Head
   plug Plug.Session, @session_options
-  plug ElixirisweirdWeb.Router
+  plug ElixirIsWeirdWeb.Router
 end

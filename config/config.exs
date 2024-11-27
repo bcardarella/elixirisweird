@@ -8,18 +8,18 @@
 import Config
 
 config :elixirisweird,
-  ecto_repos: [Elixirisweird.Repo],
+  ecto_repos: [ElixirIsWeird.Repo],
   generators: [timestamp_type: :utc_datetime]
 
 # Configures the endpoint
-config :elixirisweird, ElixirisweirdWeb.Endpoint,
+config :elixirisweird, ElixirIsWeirdWeb.Endpoint,
   url: [host: "localhost"],
   adapter: Bandit.PhoenixAdapter,
   render_errors: [
-    formats: [html: Beacon.Web.ErrorHTML, json: ElixirisweirdWeb.ErrorJSON],
+    formats: [html: Beacon.Web.ErrorHTML, json: ElixirIsWeirdWeb.ErrorJSON],
     layout: false
   ],
-  pubsub_server: Elixirisweird.PubSub,
+  pubsub_server: ElixirIsWeird.PubSub,
   live_view: [signing_salt: "LTlCk3eZ"]
 
 # Configures the mailer
@@ -29,7 +29,7 @@ config :elixirisweird, ElixirisweirdWeb.Endpoint,
 #
 # For production it's recommended to configure a different adapter
 # at the `config/runtime.exs`.
-config :elixirisweird, Elixirisweird.Mailer, adapter: Swoosh.Adapters.Local
+config :elixirisweird, ElixirIsWeird.Mailer, adapter: Swoosh.Adapters.Local
 
 # Configure esbuild (the version is required)
 config :esbuild,
@@ -60,6 +60,11 @@ config :logger, :console,
 
 # Use Jason for JSON parsing in Phoenix
 config :phoenix, :json_library, Jason
+
+config :elixirisweird, basic_auth: [
+  System.get_env("BASIC_AUTH_USERNAME", "admin"),
+  System.get_env("BASIC_AUTH_PASSWORD", "password")
+]
 
 # Import environment specific config. This must remain at the bottom
 # of this file so it overrides the configuration defined above.

@@ -1,5 +1,5 @@
-defmodule ElixirisweirdWeb.Router do
-  use ElixirisweirdWeb, :router
+defmodule ElixirIsWeirdWeb.Router do
+  use ElixirIsWeirdWeb, :router
 
   use Beacon.Router
   use Beacon.LiveAdmin.Router
@@ -12,7 +12,7 @@ defmodule ElixirisweirdWeb.Router do
     plug :accepts, ["html"]
     plug :fetch_session
     plug :fetch_live_flash
-    plug :put_root_layout, html: {ElixirisweirdWeb.Layouts, :root}
+    plug :put_root_layout, html: {ElixirIsWeirdWeb.Layouts, :root}
     plug :protect_from_forgery
     plug :put_secure_browser_headers
   end
@@ -21,16 +21,15 @@ defmodule ElixirisweirdWeb.Router do
     plug :accepts, ["json"]
   end
 
-  scope "/" do
-    pipe_through [:browser, :beacon_admin]
-    beacon_live_admin "/admin"
-    beacon_site "/", site: :elixirisweird, root_layout: {ElixirisweirdWeb.Layouts, :"2025"}
+  scope "/admin" do
+    pipe_through [:browser, :beacon_admin, ElixirIsWeird.Plugs.SiteBasicAuth]
+    beacon_live_admin "/"
   end
 
-  # Other scopes may use custom stacks.
-  # scope "/api", ElixirisweirdWeb do
-  #   pipe_through :api
-  # end
+  scope "/" do
+    pipe_through [:browser, :beacon_admin]
+    beacon_site "/", site: :elixirisweird, root_layout: {ElixirIsWeirdWeb.Layouts, :"2025"}
+  end
 
   # Enable LiveDashboard and Swoosh mailbox preview in development
   if Application.compile_env(:elixirisweird, :dev_routes) do
@@ -44,7 +43,7 @@ defmodule ElixirisweirdWeb.Router do
     scope "/dev" do
       pipe_through :browser
 
-      live_dashboard "/dashboard", metrics: ElixirisweirdWeb.Telemetry
+      live_dashboard "/dashboard", metrics: ElixirIsWeirdWeb.Telemetry
       forward "/mailbox", Plug.Swoosh.MailboxPreview
     end
   end

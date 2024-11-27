@@ -1,4 +1,4 @@
-defmodule Elixirisweird.Repo do
+defmodule ElixirIsWeird.Repo do
   use Ecto.Repo,
     otp_app: :elixirisweird,
     adapter: Ecto.Adapters.Postgres

@@ -1,3 +1,3 @@
-defmodule Elixirisweird.Mailer do
+defmodule ElixirIsWeird.Mailer do
   use Swoosh.Mailer, otp_app: :elixirisweird
 end

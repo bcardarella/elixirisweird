@@ -1,1 +1,1 @@
-call "%~dp0\elixirisweird" eval Elixirisweird.Release.migrate
+call "%~dp0\elixirisweird" eval ElixirIsWeird.Release.migrate

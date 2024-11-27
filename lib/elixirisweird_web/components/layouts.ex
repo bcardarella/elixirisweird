@@ -1,14 +1,14 @@
-defmodule ElixirisweirdWeb.Layouts do
+defmodule ElixirIsWeirdWeb.Layouts do
   @moduledoc """
   This module holds different layouts used by your application.
 
   See the `layouts` directory for all templates available.
   The "root" layout is a skeleton rendered as part of the
   application router. The "app" layout is set as the default
-  layout on both `use ElixirisweirdWeb, :controller` and
-  `use ElixirisweirdWeb, :live_view`.
+  layout on both `use ElixirIsWeirdWeb, :controller` and
+  `use ElixirIsWeirdWeb, :live_view`.
   """
-  use ElixirisweirdWeb, :html
+  use ElixirIsWeirdWeb, :html
 
   embed_templates "layouts/*"
 end

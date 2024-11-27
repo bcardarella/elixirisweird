@@ -1,5 +1,5 @@
-defmodule ElixirisweirdWeb.PageControllerTest do
-  use ElixirisweirdWeb.ConnCase
+defmodule ElixirIsWeirdWeb.PageControllerTest do
+  use ElixirIsWeirdWeb.ConnCase
 
   test "GET /", %{conn: conn} do
     conn = get(conn, ~p"/")

@@ -1,4 +1,4 @@
-defmodule Elixirisweird.Repo.Migrations.CreateBeaconTables do
+defmodule ElixirIsWeird.Repo.Migrations.CreateBeaconTables do
   use Ecto.Migration
 
   def up, do: Beacon.Migration.up()

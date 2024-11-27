@@ -1,5 +1,5 @@
-defmodule ElixirisweirdWeb.PageController do
-  use ElixirisweirdWeb, :controller
+defmodule ElixirIsWeirdWeb.PageController do
+  use ElixirIsWeirdWeb, :controller
 
   def home(conn, _params) do
     # The home page is often custom made,

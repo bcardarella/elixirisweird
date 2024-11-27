@@ -1,12 +1,12 @@
-defmodule ElixirisweirdWeb do
+defmodule ElixirIsWeirdWeb do
   @moduledoc """
   The entrypoint for defining your web interface, such
   as controllers, components, channels, and so on.
 
   This can be used in your application as:
 
-      use ElixirisweirdWeb, :controller
-      use ElixirisweirdWeb, :html
+      use ElixirIsWeirdWeb, :controller
+      use ElixirIsWeirdWeb, :html
 
   The definitions below will be executed for every controller,
   component, etc, so keep them short and clean, focused
@@ -40,10 +40,10 @@ defmodule ElixirisweirdWeb do
     quote do
       use Phoenix.Controller,
         formats: [:html, :json],
-        layouts: [html: ElixirisweirdWeb.Layouts]
+        layouts: [html: ElixirIsWeirdWeb.Layouts]
 
       import Plug.Conn
-      import ElixirisweirdWeb.Gettext
+      import ElixirIsWeirdWeb.Gettext
 
       unquote(verified_routes())
     end
@@ -52,7 +52,7 @@ defmodule ElixirisweirdWeb do
   def live_view do
     quote do
       use Phoenix.LiveView,
-        layout: {ElixirisweirdWeb.Layouts, :app}
+        layout: {ElixirIsWeirdWeb.Layouts, :app}
 
       unquote(html_helpers())
     end
@@ -84,8 +84,8 @@ defmodule ElixirisweirdWeb do
       # HTML escaping functionality
       import Phoenix.HTML
       # Core UI components and translation
-      import ElixirisweirdWeb.CoreComponents
-      import ElixirisweirdWeb.Gettext
+      import ElixirIsWeirdWeb.CoreComponents
+      import ElixirIsWeirdWeb.Gettext
 
       # Shortcut for generating JS commands
       alias Phoenix.LiveView.JS
@@ -98,9 +98,9 @@ defmodule ElixirisweirdWeb do
   def verified_routes do
     quote do
       use Phoenix.VerifiedRoutes,
-        endpoint: ElixirisweirdWeb.Endpoint,
-        router: ElixirisweirdWeb.Router,
-        statics: ElixirisweirdWeb.static_paths()
+        endpoint: ElixirIsWeirdWeb.Endpoint,
+        router: ElixirIsWeirdWeb.Router,
+        statics: ElixirIsWeirdWeb.static_paths()
     end
   end
 

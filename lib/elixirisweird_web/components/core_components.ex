@@ -1,4 +1,4 @@
-defmodule ElixirisweirdWeb.CoreComponents do
+defmodule ElixirIsWeirdWeb.CoreComponents do
   @moduledoc """
   Provides core UI components.
 
@@ -17,7 +17,7 @@ defmodule ElixirisweirdWeb.CoreComponents do
   use Phoenix.Component
 
   alias Phoenix.LiveView.JS
-  import ElixirisweirdWeb.Gettext
+  import ElixirIsWeirdWeb.Gettext
 
   @doc """
   Renders a modal.
@@ -661,9 +661,9 @@ defmodule ElixirisweirdWeb.CoreComponents do
     # with our gettext backend as first argument. Translations are
     # available in the errors.po file (as we use the "errors" domain).
     if count = opts[:count] do
-      Gettext.dngettext(ElixirisweirdWeb.Gettext, "errors", msg, msg, count, opts)
+      Gettext.dngettext(ElixirIsWeirdWeb.Gettext, "errors", msg, msg, count, opts)
     else
-      Gettext.dgettext(ElixirisweirdWeb.Gettext, "errors", msg, opts)
+      Gettext.dgettext(ElixirIsWeirdWeb.Gettext, "errors", msg, opts)
     end
   end
 
