@@ -61,6 +61,11 @@ if config_env() == :prod do
 
   config :elixirisweird, :dns_cluster_query, System.get_env("DNS_CLUSTER_QUERY")
 
+  config :elixirisweird, basic_auth: [
+    System.get_env("BASIC_AUTH_USERNAME", "admin"),
+    System.get_env("BASIC_AUTH_PASSWORD", "password")
+  ]
+
   config :elixirisweird, ElixirIsWeirdWeb.Endpoint,
     url: [host: host, port: 443, scheme: "https"],
     http: [
